@@ -13,14 +13,33 @@ function M3_1(){
     document.getElementById("Question31").innerHTML = QM31_Q ;
     document.getElementById("Answer31").innerHTML = QM31_A ;
     document.getElementById("Answer31").style.visibility="hidden"
+    document.getElementById("trueOrFalse").innerHTML=""
+    document.getElementById("yourAnswer").value=""
+
 }
 
 function A3_1(){
     let ans = document.getElementById("Answer31");
+    let ansValue = document.getElementById("Answer31").textContent;
+    let yourAns= document.getElementById("yourAnswer").value;
+    
+    console.log(ans)
+    console.log(yourAns)
+    console.log(ansValue==yourAns)
 
-    if (ans.style.visibility=="hidden"){
-        ans.style.visibility="visible";
+    if (ansValue == yourAns){
+        document.getElementById("trueOrFalse").innerHTML = "正解です。"
+        if (ans.style.visibility=="hidden"){
+            ans.style.visibility="visible";
+        }else{
+        // pass
+        }    
     }else{
-        ans.style.visibility="visible";
+        document.getElementById("trueOrFalse").innerHTML = "もう一回チャレンジ！"
+        if (ans.style.visibility=="visible"){
+            ans.style.visibility="hidden";
+        }else{
+        // pass
+        }
     }
 }
